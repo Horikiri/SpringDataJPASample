@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import jp.co.foxbit.horikiri.spring.jpa.sample.model.parameter.ParameterInformationModel;
+import jp.co.foxbit.horikiri.spring.jpa.sample.model.result.ResultInformationModel;
 import jp.co.foxbit.horikiri.spring.jpa.sample.service.InformationService;
 
 @Controller
@@ -42,7 +43,7 @@ public class InformationController {
     public String updateInformation(@PathVariable String userID, Model model) {
 
         model.addAttribute("informationModel",
-                new ParameterInformationModel(informationService.fetchInformation(userID)));
+                new ResultInformationModel(informationService.fetchInformation(userID)));
 
         return "information/update_information";
     }
@@ -51,7 +52,7 @@ public class InformationController {
     public String deleteInformation(@PathVariable String userID, Model model) {
 
         model.addAttribute("informationModel",
-                new ParameterInformationModel(informationService.fetchInformation(userID)));
+                new ResultInformationModel(informationService.fetchInformation(userID)));
 
         return "information/delete_information";
     }

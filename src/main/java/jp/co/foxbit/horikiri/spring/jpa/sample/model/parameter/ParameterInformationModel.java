@@ -1,7 +1,5 @@
 package jp.co.foxbit.horikiri.spring.jpa.sample.model.parameter;
 
-import jp.co.foxbit.horikiri.spring.jpa.sample.model.db.DBInformationModel;
-
 public class ParameterInformationModel {
 
     private String userID;
@@ -42,18 +40,5 @@ public class ParameterInformationModel {
 
     public void setValidUser(boolean validUser) {
         this.validUser = validUser;
-    }
-    
-
-    public ParameterInformationModel() {
-
-    }
-
-    public ParameterInformationModel(DBInformationModel informationModel) {
-
-        userID = informationModel.getUserID();
-        firstName = informationModel.getFirstName();
-        lastName = informationModel.getLastName();
-        validUser = !informationModel.getDeleted();
     }
 }

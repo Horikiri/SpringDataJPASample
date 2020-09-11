@@ -26,7 +26,7 @@
           <td th:text="|*{firstName} *{lastName}|"></td>
           <td th:text="*{createdAt}"></td>
           <td th:text="*{modifiedAt}"></td>
-          <td th:text="*{deleted} ? '' : '○'"></td>
+          <td th:text="*{validUser} ? '○' : ''"></td>
           <td><a th:href="@{/information/update/{userID}(userID=*{userID})}">更新</a></td>
           <td><a th:href="@{/information/delete/{userID}(userID=*{userID})}">削除</a></td>
         </tr>
