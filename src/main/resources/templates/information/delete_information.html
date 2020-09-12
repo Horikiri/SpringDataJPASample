@@ -5,7 +5,7 @@
   <title>Insert title here</title>
 </head>
 <body>
-  <form th:action="@{/information/db/delete/{userID}(userID=*{userID})}" th:object="${informationModel}" th:method="DELETE">
+  <form th:action="@{/information/db/delete/{userID}(userID=*{userID})}" th:object="${informationForm}" th:method="DELETE">
     <div>更新フォーム</div>
     <div>
       <div>
@@ -14,7 +14,7 @@
       </div>
       <div>
         <label>名前</label>
-        <label th:text="|*{firstName} {lastName}|"></label>
+        <label th:text="|*{firstName} *{lastName}|"></label>
       </div>
       <div>
         <label>有効</label>

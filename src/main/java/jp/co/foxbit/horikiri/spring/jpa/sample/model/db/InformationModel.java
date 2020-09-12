@@ -7,11 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import jp.co.foxbit.horikiri.spring.jpa.sample.model.parameter.ParameterInformationModel;
+import jp.co.foxbit.horikiri.spring.jpa.sample.model.form.InformationForm;
 
 @Entity
 @Table(schema = "[user]", name = "[Information]")
-public class DBInformationModel {
+public class InformationModel {
 
     @Id
     @Column(name = "userid", nullable = false, updatable = false)
@@ -80,13 +80,13 @@ public class DBInformationModel {
         this.deleted = deleted;
     }
 
-    public DBInformationModel() {
+    public InformationModel() {
 
         createdAt = new Timestamp(System.currentTimeMillis());
         modifiedAt = createdAt;
     }
 
-    public DBInformationModel(ParameterInformationModel informationModel, boolean isCreate) {
+    public InformationModel(InformationForm informationModel, boolean isCreate) {
 
         var timestamp = new Timestamp(System.currentTimeMillis());
 

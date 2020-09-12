@@ -21,7 +21,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr th:each="information:${allInformation}" th:object="${information}">
+        <tr th:each="information:${informationResult}" th:object="${information}">
           <td th:text="*{userID}"></td>
           <td th:text="|*{firstName} *{lastName}|"></td>
           <td th:text="*{createdAt}"></td>

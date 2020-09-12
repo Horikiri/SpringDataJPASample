@@ -2,9 +2,9 @@ package jp.co.foxbit.horikiri.spring.jpa.sample.model.result;
 
 import java.text.SimpleDateFormat;
 
-import jp.co.foxbit.horikiri.spring.jpa.sample.model.db.DBInformationModel;
+import jp.co.foxbit.horikiri.spring.jpa.sample.model.db.InformationModel;
 
-public class ResultInformationModel {
+public class InformationResult {
 
     private String userID;
 
@@ -66,7 +66,7 @@ public class ResultInformationModel {
         this.validUser = validUser;
     }
 
-    public ResultInformationModel(DBInformationModel informationModel) {
+    public InformationResult(InformationModel informationModel) {
 
         userID = informationModel.getUserID();
         firstName = informationModel.getFirstName();
@@ -75,5 +75,4 @@ public class ResultInformationModel {
         modifiedAt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(informationModel.getModifiedAt());
         validUser = !informationModel.getDeleted();
     }
-
 }

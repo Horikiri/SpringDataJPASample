@@ -5,18 +5,23 @@
   <title>Insert title here</title>
 </head>
 <body>
-  <form th:action="@{/information/db/create}" th:object="${informationModel}" th:method="POST">
+  <form th:action="@{/information/db/create}" th:object="${informationForm}" th:method="POST">
     <div>登録フォーム</div>
     <div>
       <div>
         <label>ユーザーID</label>
-        <input type="text" th:field="*{userID}" placeholder="userID"/>
+        <input type="text" th:field="*{userID}"/>
+        <span th:if="${#fields.hasErrors('userID')}" th:errors="*{userID}" style="color: red"></span>
       </div>
       <div>
         <label>名前（姓）</label>
-        <input type="text" th:field="*{firstName}" placeholder="firstName"/>
+        <input type="text" th:field="*{firstName}"/>
+        <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" style="color: red"></span>
+      </div>
+      <div>
         <label>名前（名）</label>
-        <input type="text" th:field="*{lastName}" placeholder="lastName"/>
+        <input type="text" th:field="*{lastName}"/>
+        <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" style="color: red"></span>
       </div>
       <div>
         <label>有効</label>

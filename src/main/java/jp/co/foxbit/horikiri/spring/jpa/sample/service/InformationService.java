@@ -6,9 +6,9 @@ import java.util.stream.Collectors;
 //import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import jp.co.foxbit.horikiri.spring.jpa.sample.model.db.DBInformationModel;
-import jp.co.foxbit.horikiri.spring.jpa.sample.model.parameter.ParameterInformationModel;
-import jp.co.foxbit.horikiri.spring.jpa.sample.model.result.ResultInformationModel;
+import jp.co.foxbit.horikiri.spring.jpa.sample.model.db.InformationModel;
+import jp.co.foxbit.horikiri.spring.jpa.sample.model.form.InformationForm;
+import jp.co.foxbit.horikiri.spring.jpa.sample.model.result.InformationResult;
 import jp.co.foxbit.horikiri.spring.jpa.sample.repository.InformationRepository;
 
 @Service
@@ -23,27 +23,27 @@ public class InformationService {
         this.informationRepository = informationRepository;
     }
 
-    public List<ResultInformationModel> fetchAllInformation() {
+    public List<InformationResult> fetchAllInformation() {
 
         return informationRepository.findAll()
                 .stream()
-                .map(i -> new ResultInformationModel(i))
+                .map(i -> new InformationResult(i))
                 .collect(Collectors.toList());
     }
 
-    public DBInformationModel fetchInformation(String userID) {
+    public InformationModel fetchInformation(String userID) {
 
-        return informationRepository.findById(userID).orElse(new DBInformationModel());
+        return informationRepository.findById(userID).orElse(new InformationModel());
     }
 
-    public DBInformationModel createInformation(ParameterInformationModel informationModel) {
+    public InformationModel createInformation(InformationForm informationForm) {
 
-        return informationRepository.save(new DBInformationModel(informationModel, true));
+        return informationRepository.save(new InformationModel(informationForm, true));
     }
 
-    public DBInformationModel updateInformation(ParameterInformationModel informationModel) {
+    public InformationModel updateInformation(InformationForm informationForm) {
 
-        return informationRepository.save(new DBInformationModel(informationModel, false));
+        return informationRepository.save(new InformationModel(informationForm, false));
     }
 
     public void deleteInformation(String userID) {
